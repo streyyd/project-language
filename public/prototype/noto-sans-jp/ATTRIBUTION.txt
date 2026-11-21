@@ -1,0 +1,16 @@
+Project Language Print Kana Prototype
+
+Noto Sans JP
+- Source release: Noto Sans CJK Sans2.004
+- File: NotoSansCJKjp-Regular.otf
+- Source: https://github.com/notofonts/noto-cjk
+- License: SIL Open Font License 1.1
+- License text: LICENSE.txt in this directory
+
+KanjiVG stroke trajectories
+- Release: r20250816
+- Source: https://github.com/KanjiVG/kanjivg
+- License: Creative Commons Attribution-ShareAlike 3.0
+- Trajectories used in the prototype: あ, き, ぬ
+- No glyph geometry or stroke data was manually invented. No
+  manual trajectory correction was recorded in this prototype.

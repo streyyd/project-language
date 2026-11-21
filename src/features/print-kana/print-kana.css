@@ -1,0 +1,279 @@
+@font-face {
+  font-family: "Noto Sans JP Print Prototype";
+  src: url("/prototype/noto-sans-jp/NotoSansCJKjp-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+.print-kana-prototype {
+  min-height: 100vh;
+  padding: var(--space-8);
+  color: var(--color-text-primary);
+  background: var(--color-bg-page);
+  font-family: var(--font-family-interface);
+}
+
+.print-kana-header,
+.print-kana-controls,
+.print-kana-playback,
+.print-kana-source {
+  max-width: 1060px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.print-kana-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding-bottom: var(--space-5);
+  border-bottom: var(--border-default);
+}
+
+.print-kana-header h1 {
+  margin: var(--space-2) 0 0;
+  font-size: var(--font-size-h1);
+}
+
+.print-kana-header > span,
+.print-kana-source {
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-caption);
+}
+
+.print-kana-eyebrow {
+  color: var(--color-accent-strong);
+  font-size: var(--font-size-eyebrow);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.print-kana-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+.print-kana-character-tabs,
+.print-kana-mode-tabs {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.print-kana-character-tabs button,
+.print-kana-mode-tabs button,
+.print-kana-playback button {
+  min-height: 44px;
+  border: var(--border-default);
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  background: var(--color-surface);
+  cursor: pointer;
+}
+
+.print-kana-character-tabs button {
+  width: 52px;
+  font-family: "Noto Sans JP Print Prototype", sans-serif;
+  font-size: var(--font-size-h3);
+}
+
+.print-kana-mode-tabs button,
+.print-kana-playback button {
+  padding: 0 var(--space-4);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-semibold);
+}
+
+.print-kana-character-tabs button.is-active,
+.print-kana-mode-tabs button.is-active {
+  border-color: var(--color-accent-soft);
+  color: var(--color-accent-strong);
+  background: var(--color-accent-soft);
+}
+
+.print-kana-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 760px) 280px;
+  justify-content: center;
+  gap: var(--space-6);
+  max-width: 1060px;
+  margin: var(--space-6) auto 0;
+}
+
+.print-kana-visual,
+.print-kana-report {
+  border: var(--border-default);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface-raised);
+  box-shadow: var(--shadow-card-default);
+}
+
+.print-kana-visual {
+  min-width: 0;
+  padding: var(--space-5);
+}
+
+.print-kana-svg {
+  display: block;
+  width: 100%;
+  max-height: 700px;
+  aspect-ratio: 1;
+  border: var(--border-default);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-subtle);
+}
+
+.print-kana-bbox {
+  fill: none;
+  stroke: var(--color-border-strong);
+  stroke-width: 2;
+  stroke-dasharray: 10 10;
+  vector-effect: non-scaling-stroke;
+}
+
+.print-kana-noto-glyph {
+  fill: var(--color-text-primary);
+  font-weight: 400;
+}
+
+.print-kana-trajectory {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.2;
+  opacity: 0.78;
+}
+
+.print-kana-trajectory.stroke-2 {
+  stroke: var(--color-success);
+}
+
+.print-kana-trajectory.stroke-3,
+.print-kana-trajectory.stroke-4 {
+  stroke: var(--color-warning);
+}
+
+.print-kana-animated-stroke {
+  fill: none;
+  stroke: var(--color-accent-strong);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 24;
+  vector-effect: non-scaling-stroke;
+}
+
+.print-kana-start-point {
+  fill: var(--color-surface);
+  stroke: var(--color-accent-strong);
+  stroke-width: 4;
+  vector-effect: non-scaling-stroke;
+}
+
+.print-kana-start-label {
+  fill: var(--color-accent-strong);
+  font-size: 10px;
+  font-weight: var(--font-weight-bold);
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.print-kana-playback {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.print-kana-primary {
+  color: var(--color-on-accent);
+  background: var(--color-accent);
+}
+
+.print-kana-report {
+  align-self: start;
+  padding: var(--space-5);
+}
+
+.print-kana-report dl {
+  display: grid;
+  gap: var(--space-4);
+  margin: var(--space-5) 0;
+}
+
+.print-kana-report dl > div {
+  display: grid;
+  gap: var(--space-1);
+  padding-bottom: var(--space-3);
+  border-bottom: var(--border-default);
+}
+
+.print-kana-report dt {
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-caption);
+}
+
+.print-kana-report dd {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-body);
+}
+
+.print-kana-warning {
+  color: var(--color-warning);
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-body);
+}
+
+.print-kana-source {
+  display: grid;
+  gap: var(--space-1);
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: var(--border-default);
+}
+
+.print-kana-source p {
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .print-kana-prototype {
+    padding: var(--space-4);
+  }
+
+  .print-kana-header,
+  .print-kana-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .print-kana-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .print-kana-mode-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .print-kana-mode-tabs button {
+    width: 100%;
+  }
+
+  .print-kana-visual {
+    padding: var(--space-3);
+  }
+
+  .print-kana-report {
+    order: 2;
+  }
+}

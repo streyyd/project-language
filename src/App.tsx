@@ -5,14 +5,42 @@ import {
   type AppRoute,
 } from './app/navigation'
 import { VocabularyPage } from './features/vocabulary/VocabularyPage'
+import { StudyPage } from './features/study/StudyPage'
+import { StudySpaceShell } from './features/study/StudySpaceShell'
 import './App.css'
 
 function App() {
   const [activeRoute, setActiveRoute] = useState<AppRoute>('dashboard')
+  const [isStudySessionActive, setIsStudySessionActive] = useState(false)
   const activeItem = navigationItems.find((item) => item.route === activeRoute)
 
+  function handleNavigate(nextRoute: AppRoute) {
+    if (
+      activeRoute === 'study' &&
+      isStudySessionActive &&
+      nextRoute !== 'study' &&
+      !window.confirm('Leave this study session? Your current progress will be lost.')
+    ) {
+      return
+    }
+
+    setIsStudySessionActive(false)
+    setActiveRoute(nextRoute)
+  }
+
+  if (activeRoute === 'study') {
+    return (
+      <StudySpaceShell onExit={() => handleNavigate('dashboard')}>
+        <StudyPage
+          onNavigate={handleNavigate}
+          onSessionActiveChange={setIsStudySessionActive}
+        />
+      </StudySpaceShell>
+    )
+  }
+
   return (
-    <AppShell activeRoute={activeRoute} onNavigate={setActiveRoute}>
+    <AppShell activeRoute={activeRoute} onNavigate={handleNavigate}>
       <header className="page-header">
         <div>
           <p className="eyebrow">Workspace</p>
